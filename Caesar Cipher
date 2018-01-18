@@ -1,0 +1,24 @@
+def caesar_cipher(string,shift)
+  chars = string.split("")
+  cipher = ""
+  chars.each do|char| 
+    ascii_convert = char.ord
+    if ascii_convert >= "a".ord && ascii_convert<= "z".ord
+      increment = (ascii_convert + shift - 97) % 26
+      base = 97
+      nu = (base + increment).chr
+    elsif ascii_convert >= "A".ord && ascii_convert<= "Z".ord
+      increment = (ascii_convert + shift - 65) % 26
+      base = 65
+      nu = (base + increment).chr
+    else
+      increment = ascii_convert
+      base = 0
+      nu = (base + increment).chr
+    end
+    cipher << nu
+  end
+  puts cipher
+end
+
+caesar_cipher("What a string!",5)
